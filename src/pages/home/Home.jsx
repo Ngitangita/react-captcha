@@ -3,6 +3,8 @@ import { useCaptcha } from "../../hooks";
 export default function Home() {
      const captchaAxios = useCaptcha();
      const showCaptcha = () => {
+        console.log("SHOW CAPTCHA");
+        
         captchaAxios
           .get("https://jsonplaceholder.typicode.com/posts/1") 
           .then((response) => {
