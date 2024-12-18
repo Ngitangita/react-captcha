@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div>
-      <p>Login with CAPTCHA</p>
+      <p>OOOOOOOOOOOOh Login with CAPTCHA</p>
       <button onClick={showCaptcha}>Afficher Capcha</button>
     </div>
   );
