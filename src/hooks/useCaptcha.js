@@ -5,6 +5,11 @@ export function useCaptcha(onCaptchaEvent = (event) => console.log(event)) {
   const captchaAxios = axios.create();
 
   function renderCaptcha() {
+    if (typeof window.AwsWafCaptcha === "undefined") {
+      console.error("AwsWafCaptcha n'est pas encore chargé.");
+      return Promise.reject(new Error("AwsWafCaptcha n'est pas disponible"));
+    }
+
     document.body.style.cursor = "wait";
     document.getElementById("modalOverlay").style.display = "block";
     document.getElementById("modal").style.display = "block";

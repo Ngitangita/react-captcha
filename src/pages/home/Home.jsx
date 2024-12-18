@@ -1,7 +1,7 @@
 import { useCaptcha } from "../../hooks";
 
 export default function Home() {
-  const { renderCaptcha } = useCaptcha(); 
+  const { renderCaptcha } = useCaptcha();
 
   const showCaptcha = () => {
     renderCaptcha()
