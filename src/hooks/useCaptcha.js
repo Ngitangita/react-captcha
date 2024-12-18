@@ -3,6 +3,7 @@ import { getWAFEnv } from "../utils/getWAFEnv";
 
 export function useCaptcha(onCaptchaEvent = (event) => console.log(event)) {
   const captchaAxios = axios.create();
+
   function renderCaptcha() {
     document.body.style.cursor = "wait";
     document.getElementById("modalOverlay").style.display = "block";
@@ -60,5 +61,5 @@ export function useCaptcha(onCaptchaEvent = (event) => console.log(event)) {
     (_) => Promise.reject(_)
   );
 
-  return captchaAxios;
+  return { captchaAxios, renderCaptcha };
 }

@@ -1,25 +1,10 @@
 import { useCaptcha } from "../../hooks";
-import { getWAFEnv } from "../../utils/getWAFEnv";
 
 export default function Home() {
-  const captchaAxios = useCaptcha();
+  const { renderCaptcha } = useCaptcha(); 
+
   const showCaptcha = () => {
-    console.log(getWAFEnv().VITE_CAPTCHA_API_KEY);
-    console.log(getWAFEnv().VITE_JSAPI_URL);
-    
-    console.log("SHOW CAPTCHA");
-
-    captchaAxios
-      .get("https://jsonplaceholder.typicode.com/posts/1")
-      .then((response) => {
-        console.log("API Response:", response.data);
-      })
-      .catch((error) => {
-        console.error("Erreur Captcha ou autre :", error);
-      });
-
-    captchaAxios
-      .renderCaptcha()
+    renderCaptcha()
       .then((wafToken) => {
         console.log("CAPTCHA token reçu:", wafToken);
       })
