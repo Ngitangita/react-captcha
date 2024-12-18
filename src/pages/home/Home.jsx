@@ -1,8 +1,12 @@
 import { useCaptcha } from "../../hooks";
+import { getWAFEnv } from "../../utils/getWAFEnv";
 
 export default function Home() {
   const captchaAxios = useCaptcha();
   const showCaptcha = () => {
+    console.log(getWAFEnv().VITE_CAPTCHA_API_KEY);
+    console.log(getWAFEnv().VITE_JSAPI_URL);
+    
     console.log("SHOW CAPTCHA");
 
     captchaAxios
