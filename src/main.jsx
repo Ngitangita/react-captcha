@@ -4,10 +4,17 @@ import './index.css'
 import App from './App.jsx'
 import { loadWAFEnv } from './utils/getWAFEnv.js';
 
-await loadWAFEnv();
+
+async function initializeApp() {
+  await loadWAFEnv();
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
   </StrictMode>,
 )
+}
+
+initializeApp().catch((error) => {
+  console.error("Erreur lors de l'initialisation de l'application:", error);
+});
