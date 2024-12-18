@@ -5,6 +5,7 @@ export function loadScript() {
   const AwsWafScript = document.createElement("script");
   AwsWafScript.id = "AwsWAFScript";
   AwsWafScript.async = false;
-  AwsWafScript.src = getWAFEnv().VITE_JSAPI_URL;
+  let src = getWAFEnv().VITE_JSAPI_URL
+  AwsWafScript.src = src;
   document.head.appendChild(AwsWafScript);
 }

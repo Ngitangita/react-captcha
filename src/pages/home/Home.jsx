@@ -13,6 +13,12 @@ export default function Home() {
           .catch((error) => {
             console.error("Erreur Captcha ou autre :", error);
           });
+
+          captchaAxios.renderCaptcha().then((wafToken) => {
+            console.log("CAPTCHA token reçu:", wafToken);
+          }).catch((error) => {
+            console.error("Erreur lors du rendu du CAPTCHA", error);
+          });
       };
 
 
