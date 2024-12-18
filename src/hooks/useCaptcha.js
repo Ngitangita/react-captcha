@@ -43,7 +43,7 @@ export function useCaptcha(onCaptchaEvent = (event) => console.log(event)) {
     (error) => {
       if (captchaRequired(error)) {
         return renderCaptcha().then((token) => {
-          console.log(token);
+          console.log("TOKEN1", token);
           return captchaAxios.request(error.config);
         });
       } else return Promise.reject(error);
@@ -53,7 +53,7 @@ export function useCaptcha(onCaptchaEvent = (event) => console.log(event)) {
   captchaAxios.interceptors.request.use(
     (config) => {
       return window.AwsWafIntegration.getToken().then((token) => {
-        console.log(token);
+        console.log("TOKEN2", token);
         return config;
       });
     },
